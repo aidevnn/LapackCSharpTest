@@ -1,7 +1,7 @@
 # LapackCSharpTest
 Solving linear equation using lapack with csharp
 
-Dependencies for lapack
+Dependencies for netlib lapack
 ```
 $ sudo apt-get install liblapack3
 $ sudo apt-get install liblapack-dev
@@ -9,8 +9,8 @@ $ sudo apt-get install libopenblas-base
 $ sudo apt-get install libopenblas-dev
 ```
 
-Dependencies for Intel MKL are avalaible here. 
-https://software.intel.com/en-us/mkl
+Dependencies for Intel MKL are avalaible here https://software.intel.com/en-us/mkl
+
 After installation, $MKLPATH/mkl/lib/intel_64 must be added to ldconfig.
 
 ### Code
@@ -81,10 +81,10 @@ Equations
 5X - 2Y = 7
 -X +  Y = 1
 
-Solutions lapack
+Solutions netlib lapack
 X = 3 and Y = 4
 
-Solutions mkl
+Solutions mkl lapack
 X = 3 and Y = 4
 
 ```
