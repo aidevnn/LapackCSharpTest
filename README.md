@@ -1,13 +1,17 @@
 # LapackCSharpTest
 Solving linear equation using lapack with csharp
 
-Dependencies
+Dependencies for lapack
 ```
 $ sudo apt-get install liblapack3
 $ sudo apt-get install liblapack-dev
 $ sudo apt-get install libopenblas-base
 $ sudo apt-get install libopenblas-dev
 ```
+
+Dependencies for Intel MKL are avalaible here. 
+https://software.intel.com/en-us/mkl
+After installation, $MKLPATH/mkl/lib/intel_64 must be added to ldconfig.
 
 ### Code
 ```
