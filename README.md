@@ -19,7 +19,7 @@ namespace LapackCSharpTest
 {
     class MainClass
     {
-        [DllImport("liblapack.so")]
+        [DllImport("lapack")]
         static extern void dgesv_(ref int n, ref int nrhs, double[] a, ref int lda, int[] ipvt, double[] bx, ref int ldb, ref int infos);
 
         public static void Main(string[] args)
