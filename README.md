@@ -59,7 +59,7 @@ namespace LapackCSharpTest
 ```
 Equations
 5X - 2Y = 7
--X +   Y = 1
+-X +  Y = 1
 
 Solutions
 X = 3 and Y = 4
