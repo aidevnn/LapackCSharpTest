@@ -54,7 +54,7 @@ namespace LapackCSharpTest
             Console.WriteLine("-X +  Y = 1");
             Console.WriteLine();
 
-            Console.WriteLine("Solutions lapack");
+            Console.WriteLine("Solutions netlib lapack");
             Console.WriteLine($"X = {b0[0]} and Y = {b0[1]}");
             Console.WriteLine();
 
@@ -65,7 +65,7 @@ namespace LapackCSharpTest
 
             mkl_dgesv(ref n, ref nrhs, a1, ref lda, ipvt1, b1, ref ldb, ref infos1);
 
-            Console.WriteLine("Solutions mkl");
+            Console.WriteLine("Solutions mkl lapack");
             Console.WriteLine($"X = {b1[0]} and Y = {b1[1]}");
 
         }
