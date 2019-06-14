@@ -6,8 +6,11 @@ namespace LapackCSharpTest
 {
     class MainClass
     {
-        [DllImport("lapack")]
-        static extern void dgesv_(ref int n, ref int nrhs, double[] a, ref int lda, int[] ipvt, double[] b, ref int ldb, ref int infos);
+        [DllImport("lapack", EntryPoint = "dgesv_")]
+        static extern void lapack_dgesv(ref int n, ref int nrhs, double[] a, ref int lda, int[] ipvt, double[] b, ref int ldb, ref int infos);
+
+        [DllImport("mkl_rt", EntryPoint = "dgesv")]
+        static extern void mkl_dgesv(ref int n, ref int nrhs, double[] a, ref int lda, int[] ipvt, double[] b, ref int ldb, ref int infos);
 
         public static void Main(string[] args)
         {
@@ -21,21 +24,33 @@ namespace LapackCSharpTest
             int nrhs = 1;
             int lda = 2;
             int ldb = 2;
-            int infos = 0;
+            int infos0 = 0;
 
             var a0 = a.ToArray();
             var b0 = b.ToArray();
-            int[] ipvt = new int[n];
+            int[] ipvt0 = new int[n];
 
-            dgesv_(ref n, ref nrhs, a0, ref lda, ipvt, b0, ref ldb, ref infos);
+            lapack_dgesv(ref n, ref nrhs, a0, ref lda, ipvt0, b0, ref ldb, ref infos0);
 
             Console.WriteLine("Equations");
             Console.WriteLine("5X - 2Y = 7");
             Console.WriteLine("-X +  Y = 1");
             Console.WriteLine();
 
-            Console.WriteLine("Solutions");
+            Console.WriteLine("Solutions lapack");
             Console.WriteLine($"X = {b0[0]} and Y = {b0[1]}");
+            Console.WriteLine();
+
+            int infos1 = 0;
+            var a1 = a.ToArray();
+            var b1 = b.ToArray();
+            int[] ipvt1 = new int[n];
+
+            mkl_dgesv(ref n, ref nrhs, a1, ref lda, ipvt1, b1, ref ldb, ref infos1);
+
+            Console.WriteLine("Solutions mkl");
+            Console.WriteLine($"X = {b1[0]} and Y = {b1[1]}");
+
         }
     }
 }
