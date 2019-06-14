@@ -25,8 +25,8 @@ namespace LapackCSharpTest
         public static void Main(string[] args)
         {
 
-            // 5X - 2*Y = 7 
-            // -X +   Y = 1
+            // 5X - 2Y = 7 
+            // -X +  Y = 1
             double[] a = { 5, -1, -2, 1 };
             double[] b = { 7, 1 };
 
@@ -43,8 +43,8 @@ namespace LapackCSharpTest
             dgesv_(ref n, ref nrhs, a0, ref lda, ipvt, b0, ref ldb, ref infos);
 
             Console.WriteLine("Equations");
-            Console.WriteLine("5X - 2*Y = 7");
-            Console.WriteLine("-X +   Y = 1");
+            Console.WriteLine("5X - 2Y = 7");
+            Console.WriteLine("-X +  Y = 1");
             Console.WriteLine();
 
             Console.WriteLine("Solutions");
@@ -58,7 +58,7 @@ namespace LapackCSharpTest
 ### Output
 ```
 Equations
-5X - 2*Y = 7
+5X - 2Y = 7
 -X +   Y = 1
 
 Solutions
